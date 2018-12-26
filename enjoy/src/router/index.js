@@ -1,15 +1,64 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Index from '../components/index'
+import List from '../components/list'
+import Listdetail from '../components/listdetail'
+import Product from '../components/product'
+import Productdetail from '../components/productdetail'
+import Login from '../components/login'
+import Register from '../components/register'
+import Shopcar from '../components/shopcar'
+import Myuser from '../components/myuser'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      component: Index,
+      children:[{
+      	path:'/list',
+      	component:List,
+      	children:[
+      		{
+      			path:':enjoy',
+      			conponent:Listdetail
+
+      		}
+      	]
+
+      }
+      ]
+    },
+    {
+    	path:'/product',
+    	component:Product,
+    	children:[
+    		{
+    			path:':product',
+    			component:Productdetail
+    		}
+    	]
+    },
+    {
+      path:'/login',
+      component:Login
+    },
+    {
+      path:'/register',
+      component:Register
+    },
+    {
+      path:'/shopcar',
+      component:Shopcar
+    },
+    {
+      path:'/myuser',
+      component:Myuser
     }
+    
+
   ]
 })
