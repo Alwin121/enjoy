@@ -11,14 +11,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        "/restapi":{
-            target:"https://api.ricebook.com",
-            changeOrigin:true
-        },
 
-        "/kerwin":{
-            target:"http://localhost:3000",
-            changeOrigin:true
+        "/api":{
+            target:"https://api.ricebook.com",
+            changeOrigin:true,
+             pathRewrite: {
+                '^/api': ''
+            }
         }
     },
 
