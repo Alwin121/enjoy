@@ -9,6 +9,7 @@ import Login from '../components/login'
 import Register from '../components/register'
 import Shopcar from '../components/shopcar'
 import Myuser from '../components/myuser'
+import Cover from '../components/cover'
 
 Vue.use(Router)
 
@@ -57,6 +58,10 @@ export default new Router({
     {
       path:'/myuser',
       component:Myuser
+    },
+    {
+      path:'/cover',
+      component:Cover
     }
     
 
