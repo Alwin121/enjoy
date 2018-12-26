@@ -12,12 +12,10 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
 
-        "/api":{
+        "/hub":{
             target:"https://api.ricebook.com",
             changeOrigin:true,
-             pathRewrite: {
-                '^/api': ''
-            }
+            
         }
     },
 
