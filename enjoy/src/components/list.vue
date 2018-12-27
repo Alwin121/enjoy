@@ -2,17 +2,13 @@
   <div>
 	<div v-for= "data in list">
 		<p>{{data.name}}</p>
-
-		<table>
-			<tr>
-				<td >
-					<a v-for="dl in data.sub_category_list">
-						{{dl.name}}
-					</a>
-					
-				</td>
-			</tr>
-		</table>
+		<ul>
+			<li  v-for="dl in data.sub_category_list">
+				<a>
+					{{dl.name}}
+				</a>
+			</li>
+		</ul>
 	</div>
     <router-view></router-view>    
   </div>
@@ -41,34 +37,27 @@
 </script>
 
 <style scoped>
-	*{
-		padding: 0;
-		margin: 0;
-	}
 	p{
-		width: 100%;
 		height: 38px;
 		background:#fdfafa ;
 		line-height: 38px;
-		float: left;
 		padding-left: 25px;
 	}
-	a{	
+	ul{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	li{
+		width: 33%;
+		list-style: none;
+		text-align: center;
+	}
+	a{
 		display: inline-block;
-		width: 117px;
+		text-align: center;
 		height: 48px;
 		line-height: 48px;
 		text-align: center;
-	}
-	table{
-	 border-collapse: collapse;
-     border-spacing: 2px;
-     border-color: grey;
-     display: table
-	}
-	tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
+
 	}
 </style>
