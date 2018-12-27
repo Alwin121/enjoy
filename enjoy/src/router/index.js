@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Index from '../components/index'
 import List from '../components/list'
 import Listdetail from '../components/listdetail'
-import Product from '../components/product'
+import Product from '../components/products'
 import Productdetail from '../components/productdetail'
 import Login from '../components/login'
 import Register from '../components/register'
@@ -18,23 +18,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Index,
-      children:[{
-      	path:'/list',
-      	component:List,
-      	children:[
-      		{
-      			path:':enjoy',
-      			conponent:Listdetail
-
-      		}
-      	]
-
-      }
-      ]
+      component: Index
     },
     {
-    	path:'/product',
+      	path:'/list',
+      	component:List,
+    },
+    {
+      	path:':enjoy',
+      	conponent:Listdetail
+    },
+    {
+    	path:'/goods',
     	component:Product,
     	children:[
     		{

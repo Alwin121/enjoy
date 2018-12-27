@@ -5,9 +5,8 @@ Vue.use(Vuex) //安装使用这个功能
 
 const store = new Vuex.Store({
 	state:{
-		isShow:true,
-		datalist:[],
-		title:""
+		isTopShow:true,
+		isBottomShow:true
 		//共享状态
 	},
 
@@ -17,6 +16,18 @@ const store = new Vuex.Store({
 
 
 	mutations:{
+		showTop(state,payload){
+			state.isTopShow = true
+		},
+		hideTop(state,payload){
+			state.isTopShow = false
+		},
+		hideBottom(state,payload){
+			state.isBottomShow = false
+		},
+		showBottom(state,payload){
+			state.isBottomShow = true
+		}
 	}
 		
 })
