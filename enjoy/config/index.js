@@ -14,7 +14,7 @@ module.exports = {
 
         "/hub":{
             target:"https://api.ricebook.com",
-            changeOrigin:true,
+            changeOrigin:true
             
         }
     },
