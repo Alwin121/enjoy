@@ -2,15 +2,15 @@
 	<div>
     
     <cover_up></cover_up>
-    <hr/>
+    
 		<cover_center></cover_center>
-    <hr/>
+    
     <cover_down></cover_down>
-    <hr/>
+  
     <coverLayout></coverLayout>
-    <hr/>
+   
     <coverLayout2></coverLayout2>
-    <hr/>
+   
     <coverLayout3></coverLayout3>
 
 	</div>
@@ -42,8 +42,16 @@ export default {
 </script>
 
 <style lang="scss">
+#Layout{
+  padding-bottom: 15px;
+  border-bottom:1px solid #ccc;
+}
 div{
-  margin:4px;
+  margin-right:3px; 
+  margin-left:2px; 
+}
+hr{
+  border-bottom: 1px solid #e0e0e0;
 }
 
 </style>
