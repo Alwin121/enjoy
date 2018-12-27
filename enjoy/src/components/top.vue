@@ -20,8 +20,10 @@ export default{
 	div{
 		height: 40px;
 		width: 100%;
+
 	}
 	header{
+
 		width: 100%;
 		position: fixed;
 		top: 0;

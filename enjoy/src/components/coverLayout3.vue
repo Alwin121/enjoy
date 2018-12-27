@@ -48,7 +48,7 @@ ul{
   list-style:none;
   li{
     float: left;
-    width:130px;
+    width:110px;
     overflow: hidden;
   }
   img{

@@ -1,5 +1,6 @@
 <template>
 	<div>
+    
     <cover_up></cover_up>
     <hr/>
 		<cover_center></cover_center>
@@ -11,6 +12,7 @@
     <coverLayout2></coverLayout2>
     <hr/>
     <coverLayout3></coverLayout3>
+
 	</div>
 </template> 
 
@@ -22,10 +24,11 @@ import cover_down from "./cover_down"
 import coverLayout from "./coverLayout"
 import coverLayout2 from "./coverLayout2"
 import coverLayout3 from "./coverLayout3"
+import top from "./top"
 // import Swiper from "swiper"// 引入js
 // import "swiper/dist/css/swiper.css"
 export default {
-
+  
   components:{
     cover_up,
     cover_center,
@@ -33,10 +36,14 @@ export default {
     coverLayout,
     coverLayout2,
     coverLayout3,
-  } 
+    top
+  }
 	}
 </script>
 
 <style lang="scss">
+div{
+  margin:4px;
+}
 
 </style>

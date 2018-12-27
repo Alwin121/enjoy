@@ -1,6 +1,7 @@
 <template>
   
 <div id="Layout">
+  
    <div class="top" v-if="datalist4.group_section">
     <h1>{{datalist4.group_section.title}}</h1>
     <p>{{datalist4.group_section.desc}}</p>
@@ -48,7 +49,7 @@ ul{
   list-style:none;
   li{
     float: left;
-    width:130px;
+    width:110px;
     overflow: hidden;
   }
   img{
