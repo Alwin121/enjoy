@@ -1,6 +1,10 @@
 <template>
   <div>
-    index
+    <header>
+    	<span></span>
+		<p>ENJOY<span>北京</span></p>
+    	<span><i class="iconfont icon-xxx"></i></span>
+    </header><!-- /header -->
     <router-view></router-view>    
   </div>
 </template>
