@@ -2,7 +2,7 @@
   <div>
 	<header>
 
-    	<router-link tag="span" to="/list" activeClass="kerwinactive">首页</router-link>
+    	<router-link tag="span" to="/list" >首页</router-link>
 		<p>ENJOY<span class="location">北京</span></p>
     	<span><i class="iconfont icon-search"></i></span>
     </header> 

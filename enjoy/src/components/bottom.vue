@@ -1,10 +1,18 @@
 <template>
   <div>
 	<footer>
-    	<router-link tag="i" to="/" class="iconfont icon-training" activeClass="luanactive"></router-link>
-    	<i class="iconfont icon-all"></i>
-    	<i class="iconfont icon-cart"></i>
-    	<i class="iconfont icon-account"></i>
+    	<router-link tag="p" to="/" activeClass="luanactive">
+    		<i class="iconfont icon-training"></i>
+    	</router-link>
+    	<router-link tag="p" to="/cover" activeClass="luanactive">
+    		<i class="iconfont icon-all"></i>
+    	</router-link>
+    	<router-link tag="p" to="/shopcar" activeClass="luanactive">
+    		<i class="iconfont icon-cart"></i>
+    	</router-link>
+    	<router-link tag="p" to="/myuser" activeClass="luanactive">
+    		<i class="iconfont icon-account"></i>
+    	</router-link>
     </footer> 
   </div>
 
@@ -31,9 +39,16 @@ export default{
 		color: #000;
 		line-height: 40px;
 	}
+	p{
+		flex: 1;
+		height: 40px;
+	}
 	i{
 		display: inline-block;
-		flex: 1;
+		
 		font-size: 20px;
+	}
+	.luanactive{
+		font-weight: bold
 	}
 </style>
