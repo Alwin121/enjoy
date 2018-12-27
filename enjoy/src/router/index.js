@@ -26,15 +26,17 @@ export default new Router({
     },
     {
       	path:':enjoy',
-      	conponent:Listdetail
+      	conponent:Productdetail
     },
     {
     	path:'/goods',
-    	component:Product
-    },
-    {
-    	path:':product',
-    	component:Productdetail
+    	component:Product,
+    	children:[
+    		{
+    			path:':product',
+    			component:Listdetail
+    		}
+    	]
     },
     {
       path:'/login',
