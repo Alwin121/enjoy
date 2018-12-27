@@ -1,16 +1,15 @@
 <template>
   <div>
-    <header>
-    	<span></span>
-		<p>ENJOY<span>北京</span></p>
-    	<span><i class="iconfont icon-xxx"></i></span>
-    </header><!-- /header -->
+    <top></top>
     <router-view></router-view>    
+    <bottom></bottom>
   </div>
 </template>
 
 <script>
 	import axios from "axios"
+	import top from "./top"
+	import bottom from "./bottom"
 export default {
 
 	mounted(){
@@ -22,19 +21,15 @@ export default {
 	}).catch(error=>{
 		console.log(error)
 	})
-	axios({
-		url:'cdn/home/djEvdmlydHVhbC9pbl9jYXRlZ29yeS5qc29uP2NpdHlfaWQ9MTQwJmlzX25ld19sb2NhbD1mYWxzZSZtZDU9NzEwNzRkMGFhMWRmZmRiMWMzMjc0ODk1ZDg3MTI2NDgmMjAxODEyMjcwOTAw.json',
-		method:'get'
-	}).then(res=>{
-		console.log(res)
-	}).catch(error=>{
-		console.log(error)
-	})
-}
+},
+	components:{
+      top,
+      bottom
+    },
 }
 
 </script>
 
 <style scoped>
-
+	
 </style>
