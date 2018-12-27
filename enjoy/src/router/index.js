@@ -30,13 +30,11 @@ export default new Router({
     },
     {
     	path:'/goods',
-    	component:Product,
-    	children:[
-    		{
-    			path:':product',
-    			component:Productdetail
-    		}
-    	]
+    	component:Product
+    },
+    {
+    	path:':product',
+    	component:Productdetail
     },
     {
       path:'/login',
