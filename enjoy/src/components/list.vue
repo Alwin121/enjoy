@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all">
 	<div v-for= "data in list">
 		<p>{{data.name}}</p>
 
@@ -41,9 +41,9 @@
 </script>
 
 <style scoped>
-	*{
-		padding: 0;
-		margin: 0;
+	.all{
+		width: 100%;
+		height: 100%
 	}
 	p{
 		width: 100%;

@@ -19,11 +19,13 @@ export default{
 <style scoped>
 	div{
 		height: 40px;
+		width: 100%;
 	}
 	header{
 		width: 100%;
 		position: fixed;
 		top: 0;
+		left: 0;
 		display: flex; 
 		text-align: center;
 		height: 40px;

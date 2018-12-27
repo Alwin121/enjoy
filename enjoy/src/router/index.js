@@ -18,20 +18,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Index,
-      children:[{
+      component: Index
+    },
+    {
       	path:'/list',
       	component:List,
-      	children:[
-      		{
-      			path:':enjoy',
-      			conponent:Listdetail
-
-      		}
-      	]
-
-      }
-      ]
+    },
+    {
+      	path:':enjoy',
+      	conponent:Listdetail
     },
     {
     	path:'/goods',
