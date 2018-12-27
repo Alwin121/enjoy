@@ -22,6 +22,14 @@ export default {
 	}).catch(error=>{
 		console.log(error)
 	})
+	axios({
+		url:'cdn/home/djEvdmlydHVhbC9pbl9jYXRlZ29yeS5qc29uP2NpdHlfaWQ9MTQwJmlzX25ld19sb2NhbD1mYWxzZSZtZDU9NzEwNzRkMGFhMWRmZmRiMWMzMjc0ODk1ZDg3MTI2NDgmMjAxODEyMjcwOTAw.json',
+		method:'get'
+	}).then(res=>{
+		console.log(res)
+	}).catch(error=>{
+		console.log(error)
+	})
 }
 }
 
