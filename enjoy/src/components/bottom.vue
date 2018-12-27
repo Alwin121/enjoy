@@ -1,7 +1,7 @@
 <template>
   <div>
 	<footer>
-    	<i class="iconfont icon-training"></i>
+    	<router-link tag="i" to="/" class="iconfont icon-training" activeClass="luanactive"></router-link>
     	<i class="iconfont icon-all"></i>
     	<i class="iconfont icon-cart"></i>
     	<i class="iconfont icon-account"></i>

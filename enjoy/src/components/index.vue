@@ -20,6 +20,14 @@ export default {
 		console.log(res)
 	}).catch(error=>{
 		console.log(error)
+	}),
+	axios({
+		url:'product/info/product_detail.json?product_id=1004528&sub_product_id=5008577',
+		method:'get'
+	}).then(res=>{
+		console.log(res)
+	}).catch(error=>{
+		console.log(error)
 	})
 },
 	components:{

@@ -1,7 +1,8 @@
 <template>
   <div>
 	<header>
-    	<span @click="indexclick()">首页</span>
+
+    	<router-link tag="span" to="/list" activeClass="kerwinactive">首页</router-link>
 		<p>ENJOY<span class="location">北京</span></p>
     	<span><i class="iconfont icon-search"></i></span>
     </header> 
@@ -11,11 +12,6 @@
 
 <script>
 export default{
-	methods:{
-		indexclick(){
-			this.$router.push(`/list`)
-		}
-	}
 }
 </script>
 
