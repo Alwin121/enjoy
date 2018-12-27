@@ -41,6 +41,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#Layout{
+  padding-bottom: 15px;
+  border-bottom:1px solid #ccc;
+}
 ul{
   width:100%;
   padding:0;

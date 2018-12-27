@@ -40,6 +40,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#Layout{
+  margin-bottom: 15px;
+}
 ul{
   width:100%;
   padding:0;
