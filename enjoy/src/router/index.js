@@ -26,7 +26,7 @@ export default new Router({
     },
     {
       	path:':enjoy',
-      	conponent:Productdetail
+      	conponent:Listdetail
     },
     {
     	path:'/goods',
@@ -34,7 +34,7 @@ export default new Router({
     	children:[
     		{
     			path:':product',
-    			component:Listdetail
+    			component:Productdetail
     		}
     	]
     },
