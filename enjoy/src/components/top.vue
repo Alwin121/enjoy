@@ -23,7 +23,7 @@ export default{
 
 	}
 	header{
-
+	
 		width: 100%;
 		position: fixed;
 		top: 0;
