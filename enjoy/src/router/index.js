@@ -25,18 +25,8 @@ export default new Router({
       	component:List,
     },
     {
-      	path:'/:enjoy',
+      	path:':enjoy',
       	conponent:Listdetail
-    },
-    {
-    	path:'/product',
-    	component:Product,
-    	children:[
-    		{
-    			path:':product',
-    			component:Productdetail
-    		}
-    	]
     },
     {
       path:'/login',
@@ -57,7 +47,17 @@ export default new Router({
     {
       path:'/cover',
       component:Cover
-    }
+    },
+    {
+      path:'/product',
+      component:Product,
+      children:[
+        {
+          path:':product',
+          component:Productdetail
+        }
+      ]
+    },
     
 
   ]
