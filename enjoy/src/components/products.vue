@@ -1,13 +1,16 @@
 <template>
   <div>
-	Product
-	<router-view></router-view>    
-  	
+  	<productdetail></productdetail>
   </div>
 </template>
 
 <script>
-
+	import productdetail from "./productdetail"
+	export default {
+		components:{
+			productdetail
+		}
+	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
