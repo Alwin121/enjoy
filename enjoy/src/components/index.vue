@@ -8,7 +8,7 @@
   		<h3>{{data.group_section.title}}</h3>
 		<p class="bigp">{{data.group_section.desc}}</p>
   		<ul>
-  			<li v-for="dl in data.tabs">	
+  			<li @click="myclick(dl.enjoy_url)" v-for="dl in data.tabs">	
   				<img :src="dl.url" alt="">
   				<p class="first">{{dl.desc}}</p>
   				<p class="second">{{dl.title}}</p>
@@ -60,7 +60,17 @@ methods:{
 		console.log(error)
 	})
 
-	}
+	},
+	myclick(data){
+		console.log(data)
+		console.log(data.split("=")[2])
+		console.log(data.split("=")[1].split("&")[0])
+
+		this.$router.push(`/goods/${{product_id:data.split("=")[1].split("&")[0],sub_product_id:data.split("=")[2]
+
+	}}`)
+
+			}
 }
 }
 </script>
