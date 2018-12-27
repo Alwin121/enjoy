@@ -62,11 +62,11 @@ methods:{
 
 	},
 	myclick(data){
-		console.log(data)
-		console.log(data.split("=")[2])
-		console.log(data.split("=")[1].split("&")[0])
+		// console.log(data)
+		// console.log(data.split("=")[2])
+		// console.log(data.split("=")[1].split("&")[0])
 
-		this.$router.push(`/${data.split("=")[1].split("&")[0]}&${data.split("=")[2]}`)
+		this.$router.push(`/product/${data.split("=")[1].split("&")[0]}&${data.split("=")[2]}`)
 
 			}
 }

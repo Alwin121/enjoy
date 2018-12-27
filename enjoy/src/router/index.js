@@ -25,11 +25,11 @@ export default new Router({
       	component:List,
     },
     {
-      	path:':enjoy',
+      	path:'/:enjoy',
       	conponent:Listdetail
     },
     {
-    	path:'/goods',
+    	path:'/product',
     	component:Product,
     	children:[
     		{

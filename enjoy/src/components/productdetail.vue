@@ -43,8 +43,9 @@
 			}
 		},
 		mounted(){
+			console.log(this.$route.params.product.split("&")[0])
 			axios({
-				url:"product/info/product_detail.json?product_id=1004528&sub_product_id=5008577",
+				url:`/product/info/product_detail.json?product_id=${this.$route.params.product.split("&")[0]}&sub_product_id=${this.$route.params.product.split("&")[1]}`,
 				method: 'get',
 			}).then(res=>{
 				console.log(res.data.basic.product_images)
