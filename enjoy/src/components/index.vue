@@ -36,7 +36,7 @@ export default {
 		url:`hub/home/v1/web/week_choice.json?city_id=140&page=${this.page}`,
 		method:'get'
 	}).then(res=>{
-		console.log(res)
+		console.log(res.data)
 		this.bigdetail = res.data
 	}).catch(error=>{
 		console.log(error)
@@ -88,6 +88,6 @@ methods:{
 	}
 	h3{
 		margin-top:20px; 
-		font-size: 30px;
+		font-size: 30px
 	}
 </style>

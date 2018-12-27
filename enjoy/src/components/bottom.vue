@@ -29,6 +29,7 @@ export default{
 		height: 40px;
 	}
 	footer{
+		z-index: 10000;
 		width: 100%;
 		position: fixed;
 		bottom: 0;
