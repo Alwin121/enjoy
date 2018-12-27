@@ -37,32 +37,6 @@
 </script>
 
 <style scoped>
-	/* *{
-		padding: 0;
-		margin: 0;
-	}
-	p{
-		width: 100%;
-		height: 38px;
-		background:#fdfafa ;
-		line-height: 38px;
-		float: left;
-		padding-left: 25px;
-	}
-	ul{
-		list-style: none;
-		float: left;
-	}
-	a{	
-		display: inline-block;
-		width: 117px;
-		height: 48px;
-		background: #fff;
-		line-height: 48px;
-		text-align: center;
-		border:1px solid #ccc;
-	}
- */
 	p{
 		height: 38px;
 		background:#fdfafa ;
