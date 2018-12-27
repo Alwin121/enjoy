@@ -21,6 +21,11 @@ module.exports = {
             target:"https://s1.ricebook.com",
             changeOrigin:true
             
+        },
+        "/product":{
+            target:"https://api.ricebook.com",
+            changeOrigin:true
+            
         }
     },
 

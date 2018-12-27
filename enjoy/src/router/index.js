@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Index from '../components/index'
 import List from '../components/list'
 import Listdetail from '../components/listdetail'
-import Product from '../components/product'
+import Product from '../components/products'
 import Productdetail from '../components/productdetail'
 import Login from '../components/login'
 import Register from '../components/register'
@@ -34,7 +34,7 @@ export default new Router({
       ]
     },
     {
-    	path:'/product',
+    	path:'/goods',
     	component:Product,
     	children:[
     		{
