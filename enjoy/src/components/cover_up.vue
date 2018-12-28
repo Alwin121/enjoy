@@ -45,7 +45,7 @@ export default {
  
     }
    },
-   mounted(){
+   beforeMount(){
     axios({
         url:"hub/home/v1/web/explore.json?city_id=140",
         method: 'get'      

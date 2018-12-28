@@ -27,7 +27,7 @@ export default {
  
     }
   },
-  mounted(){
+  beforeMount(){
     axios({
         url:"hub/home/v1/web/explore.json?city_id=140",
         method: 'get'      
@@ -41,10 +41,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#Layout{
-  padding-bottom: 15px;
-  border-bottom:1px solid #ccc;
-}
+
 ul{
   width:100%;
   padding:0;
