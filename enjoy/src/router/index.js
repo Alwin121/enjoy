@@ -22,11 +22,7 @@ export default new Router({
     },
     {
       	path:'/list',
-      	component:List,
-    },
-    {
-      	path:':enjoy',
-      	conponent:Listdetail
+      	component:List
     },
     {
       path:'/login',
@@ -57,6 +53,10 @@ export default new Router({
           component:Productdetail
         }
       ]
+    },
+    {
+        path:'/listdata',
+        component:Listdetail
     },
     
 
