@@ -1,18 +1,49 @@
 <template>
   <div>
 	
-	<form action="/login" method="post">
-		<input type="text" placeholder="用户名"><br>
-		<input type="password" placeholder="密码"><br>
-		<button>登录</button>
-	</form>
+		<input type="text" placeholder="手机号" name="username" class="user"><br>
+		<input type="password" placeholder="密码" name="password" class="pass"><br>
+		<button :disabled="dis" @click="handleClick()">登录</button>
 	<router-view></router-view>    
   	
   </div>
 </template>
 
 <script>
+	import axios from 'axios'
 
+	export default{
+		data(){
+			return{
+				dis:false
+			 }
+			},
+			methods:{
+				handleClick(){
+					var user = document.querySelector('.user').value;
+					var pass = document.querySelector('.pass').value;
+					if(user === '' || pass === ''){
+						alter('请输入手机号或密码')
+						this.dis=true
+					}else{
+						axios({
+							url:'/login/check',
+							method:'post',
+							data:{
+								username:user,
+								password:pass
+							}
+						}).then(res=>{
+							if(res.ok === 0){
+								alert('手机号与密码不匹配')
+								this.dis=true
+							}
+						})
+					}
+				}
+			}
+		}
+	
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
