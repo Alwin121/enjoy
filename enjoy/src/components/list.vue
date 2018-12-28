@@ -3,7 +3,7 @@
 	<div v-for= "data in list">
 		<p>{{data.name}}</p>
 		<ul>
-			<li  v-for="dl in data.sub_category_list" @click="handleClick(dl.id)">
+			<li  v-for="dl in data.sub_category_list" @click="handleClick(dl.id)" :key="dl.id">
 				<a>
 					{{dl.name}}
 				</a>
@@ -36,7 +36,7 @@
 	  },
 	  	methods:{
 			handleClick(id){
-				this.$router.push(`/enjoy/${id}`)
+				this.$router.push(`/listdata/${id}`)
 			}
 		}
 	}
