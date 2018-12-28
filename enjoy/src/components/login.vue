@@ -1,11 +1,11 @@
 <template>
   <div>
 	
-
-	<input type="text" placeholder="用户名"><br>
-	<input type="text" placeholder="邮箱"><br>
-	<input type="password" placeholder="密码"><br>
-	<button>登录</button>
+	<form action="/login" method="post">
+		<input type="text" placeholder="用户名"><br>
+		<input type="password" placeholder="密码"><br>
+		<button>登录</button>
+	</form>
 	<router-view></router-view>    
   	
   </div>

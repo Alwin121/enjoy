@@ -27,8 +27,8 @@ module.exports = {
             changeOrigin:true
             
         },
-        "/4":{
-            target:"https://api.ricebook.com",
+        "/users":{
+            target:"http://10.2.153.231:3000",
             changeOrigin:true
             
         }
