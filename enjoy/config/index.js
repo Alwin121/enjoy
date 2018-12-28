@@ -26,11 +26,6 @@ module.exports = {
             target:"https://api.ricebook.com",
             changeOrigin:true
             
-        },
-        "/4":{
-            target:"https://api.ricebook.com",
-            changeOrigin:true
-            
         }
     },
 
