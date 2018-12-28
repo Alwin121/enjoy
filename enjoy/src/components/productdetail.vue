@@ -27,6 +27,16 @@
 		<a href="#" class="add_cart">加入购物车</a>
 		<a href="#" class="pay">即刻购买</a>
 	</div>
+
+	<div class="sub_normal">
+		<div class="sub_area">
+			<div class="title">
+				<p>已选择：{{infolist.spec}}</p>
+				<a href="#">关闭</a>
+			</div>
+		</div>
+		<div class="sub_btn"><a href="#">确定</a></div>
+	</div>
   </div>
 </template>
 
@@ -40,10 +50,17 @@
 				datalist:[],
 				infolist:{},
 				isshow:true,
+				data1:this.$route.params,
 			}
 		},
+		beforeMount(){
+				this.$store.commit("hideTop");
+				this.$store.commit("hideBottom");
+
+		},
 		mounted(){
-			console.log(this.$route.params.product.split("&")[0])
+			
+			//console.log(this.data1.product.split("&")[0],this.data1.product.split("&")[1])
 			axios({
 				url:`/product/info/product_detail.json?product_id=${this.$route.params.product.split("&")[0]}&sub_product_id=${this.$route.params.product.split("&")[1]}`,
 				method: 'get',
@@ -56,12 +73,21 @@
 		components:{
 			"swipe":Swipe,
 			"swipe-item":SwipeItem
+		},
+		beforeDestory(){
+			this.$store.commit("showTop");
+			this.$store.commit("showBottom");
+
 		}
 	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+	body{
+		overflow:hidden; 
+	}
 	.my-swipe {
 	  height: 250px;
 	  color: #fff;
@@ -173,6 +199,36 @@
 
     		.pay {
     			background-color:#ff3939
+    		}
+		}
+
+		.sub_normal {
+			position: fixed;
+    		width: 375px;
+    		left: 50%;
+    		bottom: 0;
+    		margin-left: -187px;
+    		z-index: 10;
+    		//background: #ff0;
+    		border-top: 1px solid #e6e6e6;
+
+    		.sub_area {
+    			width:100%;
+    			background-color:#0f0;
+
+    		}
+
+    		.sub_btn {
+    			position: relative;
+    			width: 100%;
+    			height: 60px;
+
+    			a {
+    				display: block;
+    				width: 100%;
+    				height: 120px;
+    				background-color: #ff3939;
+    			}
     		}
 		}
 </style>

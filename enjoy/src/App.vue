@@ -26,10 +26,12 @@ export default {
 
   html,body{
     height: 100%;
+    overflow: auto
   }
 
   li{
     list-style: none;
   }
+
 
 </style>
