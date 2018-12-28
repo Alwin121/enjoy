@@ -1,5 +1,6 @@
 <template>
   <div>
+	<router-link  class="leave" to="/" tag="div"><</router-link>
   	<div id="banner">
 		<swipe class="my-swipe">
 			<swipe-item v-for="data,index in datalist">
@@ -21,8 +22,19 @@
   			<span>随时退</span>
   		</span>
   	</div>
-
-  	<div class="sub_btn">
+	<!-- <div class="tags">
+		<span v-for="data in infolist">
+			{{}}
+		</span>
+	</div> -->
+	<div class="to" style="overflow:auto">
+		<h3 class="cart_title">商户信息</h3>
+		<div class="title"></div>
+		<a href="#" class="address"></a>
+		<a href="#" class="tel"></a>
+	</div>
+	<div class="panel-gap"></div>	
+  	<div class="sub_btn" :style="curr?'z-index:100':''">
 		<div class="cart"><i class="iconfont icon-cart"></i></div>
 		<a href="#" class="add_cart">加入购物车</a>
 		<a href="#" class="pay">即刻购买</a>
@@ -32,7 +44,8 @@
 		<div class="sub_area">
 			<div class="title clearfix">
 				<p>已选择：{{infolist.spec}}</p>
-				<a href="#" @click="handleClick()" >关闭<i class="iconfont icon-moreunfold"></i></a>
+					<a href="#" @click="handleClick()" v-show="isshow" key="1">关闭<i class="iconfont icon-moreunfold"></i></a>
+					<a href="#" @click="handleClick()" v-show="!isshow" key="2">切换<i class="iconfont icon-less"></i></a>
 			</div>
 			<transition >
 				<div class="count clearfix" v-show="isshow">
@@ -69,6 +82,10 @@
 				infolist:{},
 				isshow:true,
 				data1:this.$route.params,
+				datamodules:[],
+				show:true,
+				curr:false,
+			
 			}
 		},
 		beforeMount(){
@@ -76,7 +93,7 @@
 				this.$store.commit("hideBottom");
 
 		},
-		mounted(){
+		mounted(index){
 			
 			// console.log(this.data1.product.split("&")[0],this.data1.product.split("&")[1])
 			axios({
@@ -86,13 +103,26 @@
 				console.log(res.data.basic.product_images)
 				this.datalist = res.data.basic.product_images
 				this.infolist = res.data.basic
+				console.log(res.data.modules)
+				this.datamodules = res.data.modules[index]
 			})
+			
 		},
 
 		methods:{
 			handleClick(){
-				console.log('aaaaa')
+				//console.log('aaaaa')
 				this.isshow=!this.isshow
+				this.curr = !this.curr
+			},
+
+			over(){
+				this.appear = true
+				console.log('1111')
+			},
+
+			out(){
+				console.log('2222')
 			}
 		},
 		
@@ -110,7 +140,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-	
+	#banner {
+		width:100%
+	}
+
 	.clearfix:after { 
   		content: "";
   		visibility: hidden;
@@ -124,10 +157,11 @@
 		overflow:hidden; 
 	}
 	.my-swipe {
-	  height: 250px;
-	  color: #fff;
-	  font-size: 30px;
-	  text-align: center;
+		width:100%;
+	  	height: 250px;
+	 	color: #fff;
+	  	font-size: 30px;
+	  	text-align: center;
 
 	}
 
@@ -207,6 +241,7 @@
     		left:0;
     		//background-color:#ff0;
     		display: flex;
+			
 
     		.cart {
 				width:75px;
@@ -247,6 +282,7 @@
     		//background: #ff0;
     		border-top: 1px solid #e6e6e6;
 			transition: all 0.3s linear;
+			background: #fff;
 
     		.sub_area {
     			width:100%;
@@ -332,5 +368,21 @@
 		/* .slide-fade-leave-active for below version 2.1.8 */ {
 		  transform: translateX(10px);
 		  opacity: 0;
+		}
+
+		.leave {
+			width:50px;
+			height:25px;
+			position: fixed;
+			top:15px;
+			left:15px;
+			background: #000;
+			z-index:20;
+			opacity: 0.4;
+			color:#fff;
+			line-height: 25px;
+			text-align: center;
+			font-size: 18px;
+			text-decoration: none;
 		}
 </style>
