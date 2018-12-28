@@ -1,7 +1,7 @@
 <template>
   <div>
 	
-	<form action="/register" method="post">
+
 		<input type="text" ref="aaa" placeholder="手机号" name="username" class="user" @blur="handleBlur1()"><br>
 		<p class="one"></p>
 		<input type="text" placeholder="邮箱" name="email" class="box" ><br>
@@ -9,7 +9,6 @@
 		<input type="password" placeholder="密码" name="password" class="pass" @blur="handleBlur2()"><br>
 		<p class="three"></p>
 		<button :disabled="dis" @click="handleClick()">注册</button>
-	</form>
 	<router-view></router-view>    
   	
   </div>
@@ -20,7 +19,7 @@
 	export default{
 		data(){
 			return{
-			   users:false,
+			   
 			   dis:true
 			}
 		},
@@ -34,15 +33,16 @@
 					if(username.test(user)){
 						one.innerHTML='手机号可用'
 						axios({
-							url:'/register/check',
+							url:'/users/checkregister',
 							method:'post',
 							data:{
 								username:user
 							}
 						}).then(res=>{
-								if(res.ok===1){
+							console.log(res)
+								if(res.ok===0){
 								  one.innerHTML('✔')
-								  this.users = true
+								  this.dis=false
 								}else{
 									one.innerHTML ='手机号已被注册'
 
@@ -61,7 +61,6 @@
 						three.innerHTML='密码格式正确'
 						this.dis=false
 
-						
 					}else{
 						three.innerHTML='密码格式错误'
 						this.dis="aaa"
@@ -75,13 +74,15 @@
 					return
 				}else{
 						axios({
-							url:'/register/check',
+							url:'/users/register',
 							method:'post',
 							data:{
 								username:user,
 								email:email,
 								password:pass
 							}
+						}).then(res=>{
+							console.log(res)
 						})
 					}
 				}
