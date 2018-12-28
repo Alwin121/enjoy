@@ -3,7 +3,7 @@
 	<div v-for= "data in list">
 		<p>{{data.name}}</p>
 		<ul>
-			<li  v-for="dl in data.sub_category_list">
+			<li  v-for="dl in data.sub_category_list" @click="handleClick(dl.id)">
 				<a>
 					{{dl.name}}
 				</a>
@@ -32,7 +32,13 @@
 			this.list=res.data
 			// console.log(this.list)			
 		})
-	  }
+	
+	  },
+	  	methods:{
+			handleClick(id){
+				this.$router.push(`/enjoy/${id}`)
+			}
+		}
 	}
 </script>
 
