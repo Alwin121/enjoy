@@ -51,9 +51,9 @@
 				<div class="count clearfix" v-show="isshow">
 					<div class="tip">选择数量</div>
 					<div class="operate">
-						<a href="#" class="stract">+</a>
-						<span class="num">0</span>
-						<a href="#" class="plus">-</a>
+						<a href="#" class="stract" @click="stractClick()">+</a>
+						<span class="num">{{num}}</span>
+						<a href="#" class="plus" @click="plusClick()">-</a>
 					</div>
 				</div>
 			</transition>
@@ -85,6 +85,7 @@
 				datamodules:[],
 				show:true,
 				curr:false,
+				num:0
 			
 			}
 		},
@@ -115,14 +116,20 @@
 				this.isshow=!this.isshow
 				this.curr = !this.curr
 			},
-
-			over(){
-				this.appear = true
-				console.log('1111')
+			
+			stractClick(){
+				
+				this.num++
+				console.log('aaaa')
 			},
 
-			out(){
-				console.log('2222')
+			plusClick(){
+				if(this.num<=0){
+					this.num=0
+				}else{
+					this.num--
+				}
+				
 			}
 		},
 		
