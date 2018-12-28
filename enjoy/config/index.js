@@ -26,6 +26,11 @@ module.exports = {
             target:"https://api.ricebook.com",
             changeOrigin:true
             
+        },
+        "/users":{
+            target:"http://10.2.153.231:3000",
+            changeOrigin:true
+            
         }
     },
 

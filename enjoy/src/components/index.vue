@@ -41,6 +41,19 @@ export default {
 	}).catch(error=>{
 		console.log(error)
 	})
+	axios({
+		url:`/users/register`,
+		method:'post',
+		data:{
+			username:"lys",
+			password:"123123",
+			email:"824826557@qq.com"
+		}
+	}).then(res=>{
+		console.log(res)
+	}).catch(error=>{
+
+	})
 },
 methods:{
 
