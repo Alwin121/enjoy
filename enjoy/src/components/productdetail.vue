@@ -22,7 +22,7 @@
   		</span>
   	</div>
 
-  	<div class="sub_btn" v-show="isshow">
+  	<div class="sub_btn">
 		<div class="cart"><i class="iconfont icon-cart"></i></div>
 		<a href="#" class="add_cart">加入购物车</a>
 		<a href="#" class="pay">即刻购买</a>
@@ -30,12 +30,30 @@
 
 	<div class="sub_normal">
 		<div class="sub_area">
-			<div class="title">
+			<div class="title clearfix">
 				<p>已选择：{{infolist.spec}}</p>
-				<a href="#">关闭</a>
+				<a href="#" @click="handleClick()" >关闭<i class="iconfont icon-moreunfold"></i></a>
 			</div>
+			<transition >
+				<div class="count clearfix" v-show="isshow">
+					<div class="tip">选择数量</div>
+					<div class="operate">
+						<a href="#" class="stract">+</a>
+						<span class="num">0</span>
+						<a href="#" class="plus">-</a>
+					</div>
+				</div>
+			</transition>
+			
 		</div>
-		<div class="sub_btn"><a href="#">确定</a></div>
+		
+		<div class="sub_btn" >
+			<transition name="fade">
+				<a href="#" v-show="isshow">确定</a>
+			</transition>
+		</div>
+				
+		
 	</div>
   </div>
 </template>
@@ -60,7 +78,7 @@
 		},
 		mounted(){
 			
-			//console.log(this.data1.product.split("&")[0],this.data1.product.split("&")[1])
+			// console.log(this.data1.product.split("&")[0],this.data1.product.split("&")[1])
 			axios({
 				url:`/product/info/product_detail.json?product_id=${this.$route.params.product.split("&")[0]}&sub_product_id=${this.$route.params.product.split("&")[1]}`,
 				method: 'get',
@@ -70,6 +88,14 @@
 				this.infolist = res.data.basic
 			})
 		},
+
+		methods:{
+			handleClick(){
+				console.log('aaaaa')
+				this.isshow=!this.isshow
+			}
+		},
+		
 		components:{
 			"swipe":Swipe,
 			"swipe-item":SwipeItem
@@ -84,6 +110,15 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+	
+	.clearfix:after { 
+  		content: "";
+  		visibility: hidden;
+  		display:block;
+  		clear:both;
+  		height:0;
+  		font-size: 0;
+	}
 
 	body{
 		overflow:hidden; 
@@ -211,10 +246,57 @@
     		z-index: 10;
     		//background: #ff0;
     		border-top: 1px solid #e6e6e6;
+			transition: all 0.3s linear;
 
     		.sub_area {
     			width:100%;
-    			background-color:#0f0;
+    			// background-color:#0f0;
+				
+				.title {
+					border-bottom: 1px solid #bdc0c5;
+					padding: 11px 20px;
+					font-size: 14px;
+					color: #1a1a1a;
+
+					p {
+						float: left;
+    					padding: 6px 8px;
+    					width: 275px;
+					}
+
+					a {
+						float:right;
+						line-height: 30px;
+						text-decoration: none;
+						color:#000;
+					}
+				}
+
+				.count {
+					border-bottom: 1px solid #e6e6e6;
+    				padding: 25px 20px;
+					
+
+					.tip {
+						float:left;
+						font-size: 16px;
+    					color: #1a1a1a;
+					}
+
+					.operate {
+						float:right;
+
+						a {
+							vertical-align: middle;
+    						border: 2px solid #e0e0e0;
+							display: inline-block;
+    						width: 23px;
+    						height: 23px;
+    						text-align: center;
+							text-decoration: none;
+						}
+					}
+				}
 
     		}
 
@@ -222,13 +304,33 @@
     			position: relative;
     			width: 100%;
     			height: 60px;
-
     			a {
     				display: block;
     				width: 100%;
     				height: 120px;
     				background-color: #ff3939;
+					
     			}
     		}
+		}
+
+		.fade-enter-active, .fade-leave-active {
+ 			 transition: opacity .5s;
+		}
+
+		.fade-enter, .fade-leave-to  {
+  				opacity: 0;
+		}
+
+		.slide-fade-enter-active {
+		  transition: all .3s ease;
+		}
+		.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		.slide-fade-enter, .slide-fade-leave-to
+		/* .slide-fade-leave-active for below version 2.1.8 */ {
+		  transform: translateX(10px);
+		  opacity: 0;
 		}
 </style>
