@@ -66,7 +66,7 @@ methods:{
 		// console.log(data.split("=")[2])
 		// console.log(data.split("=")[1].split("&")[0])
 
-		this.$router.push(`/product/${data.split("=")[1].split("&")[0]}Y${data.split("=")[2]}`)
+		this.$router.push(`/product/${data.split("=")[1].split("&")[0]}&${data.split("=")[2]}`)
 
 			}
 }
