@@ -66,7 +66,13 @@ export default new Router({
     },
     {
         path:'/listdata',
-        component:Listdetail
+        component:Index,
+        children:[
+          {
+            path:':enjoy',
+            component:Listdetail
+          }
+        ]
     },
     
 
