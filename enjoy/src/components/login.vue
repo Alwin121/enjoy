@@ -2,6 +2,7 @@
   <div>
 	
 		<input type="text" placeholder="手机号" name="username" class="user"><br>
+		<input type="email" placeholder="邮箱" name="email" class="address"><br>
 		<input type="password" placeholder="密码" name="password" class="pass"><br>
 		<button :disabled="dis" @click="handleClick()">登录</button>
 	<router-view></router-view>    
@@ -21,22 +22,27 @@
 			methods:{
 				handleClick(){
 					var user = document.querySelector('.user').value;
+					var address = document.querySelector('.address').value
 					var pass = document.querySelector('.pass').value;
 					if(user === '' || pass === ''){
 						alter('请输入手机号或密码')
-						this.dis=true
+						
 					}else{
 						axios({
-							url:'/login/check',
+							url:'/users/login',
 							method:'post',
 							data:{
 								username:user,
-								password:pass
+								password:pass,
+								email:address
 							}
 						}).then(res=>{
-							if(res.ok === 0){
+							if(res.data.login === 2){
 								alert('手机号与密码不匹配')
-								this.dis=true
+								
+							}else{
+								
+								this.$router.push('/myuser')
 							}
 						})
 					}

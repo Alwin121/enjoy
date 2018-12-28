@@ -39,9 +39,8 @@
 								username:user
 							}
 						}).then(res=>{
-							console.log(res)
-								if(res.ok===0){
-								  one.innerHTML('✔')
+
+								if(res.data.ok===0){
 								  this.dis=false
 								}else{
 									one.innerHTML ='手机号已被注册'
@@ -82,7 +81,11 @@
 								password:pass
 							}
 						}).then(res=>{
-							console.log(res)
+							if (res.data.ok === 1) {
+								this.$router.push("/login")
+							}else{
+								this.$router.push("/register")
+							}
 						})
 					}
 				}
