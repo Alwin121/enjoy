@@ -28,7 +28,15 @@ import top from "./top"
 // import Swiper from "swiper"// 引入js
 // import "swiper/dist/css/swiper.css"
 export default {
-  
+  beforeMount(){
+    	Indicator.open({
+			text: '加载中...',
+			spinnerType: 'fading-circle'
+		});
+  },
+  Mounted(){
+     Indicator.close();
+  },
   components:{
     cover_up,
     cover_center,

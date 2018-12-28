@@ -36,6 +36,7 @@
 
 <script>
 import axios from "axios"
+import { Indicator } from 'mint-ui';
 export default {
   data(){
 		return {
@@ -47,6 +48,10 @@ export default {
 		}
 	},
 	beforeMount(){
+		Indicator.open({
+			text: '加载中...',
+			spinnerType: 'fading-circle'
+		});
       axios({
         url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${this.$route.params.enjoy}&sort=1&from_id=0&city_id=140&page=0`,
         method: 'get'      
@@ -54,7 +59,9 @@ export default {
         // console.log(res.data)
         // console.log(res)
         this.datalist = res.data
-
+         this.$nextTick(()=>{
+					 Indicator.close();
+				 })
 			})
 
 			axios({
@@ -74,6 +81,12 @@ export default {
        this.isShow =! this.isShow
 		},
 		idClick(id,name){
+			Indicator.open({
+	         text: '请稍等...',
+			     spinnerType: 'triple-bounce'
+			}
+				
+			);
 			this.init=name
 			axios({
         url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=23&sort=${id}&from_id=0&city_id=140&page=0`,
@@ -84,6 +97,9 @@ export default {
 				this.datalist = res.data
 				this.isShow =! this.isShow
 				this.ids = id
+				 this.$nextTick(()=>{
+					 Indicator.close();
+				 })
 
 
 			})
