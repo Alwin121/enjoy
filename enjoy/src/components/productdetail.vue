@@ -137,7 +137,7 @@
 			"swipe":Swipe,
 			"swipe-item":SwipeItem
 		},
-		beforeDestory(){
+		beforeDestroy(){
 			this.$store.commit("showTop");
 			this.$store.commit("showBottom");
 
