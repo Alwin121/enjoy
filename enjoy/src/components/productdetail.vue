@@ -98,7 +98,7 @@
 			
 			// console.log(this.data1.product.split("&")[0],this.data1.product.split("&")[1])
 			axios({
-				url:`/product/info/product_detail.json?product_id=${this.$route.params.product.split("&")[0]}&sub_product_id=${this.$route.params.product.split("&")[1]}`,
+				url:`/product/info/product_detail.json?product_id=${this.$route.params.product.split("Y")[0]}&sub_product_id=${this.$route.params.product.split("Y")[1]}`,
 				method: 'get',
 			}).then(res=>{
 				console.log(res.data.basic.product_images)
