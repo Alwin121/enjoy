@@ -23,6 +23,7 @@
 <script>
 	import axios from "axios"
 	import { InfiniteScroll } from 'mint-ui';
+	import { Indicator } from 'mint-ui';
 export default {
 	data(){
 		return{
@@ -32,28 +33,22 @@ export default {
 		}
 	},
 	mounted(){
+		Indicator.open({
+  			text: '加载中...',
+  			spinnerType: 'double-bounce'
+		});
 	axios({
 		url:`hub/home/v1/web/week_choice.json?city_id=140&page=${this.page}`,
 		method:'get'
 	}).then(res=>{
-		console.log(res.data)
 		this.bigdetail = res.data
+		this.$nextTick(()=>{
+		Indicator.close();
+	})
 	}).catch(error=>{
 		console.log(error)
 	})
-	axios({
-		url:`/users/register`,
-		method:'post',
-		data:{
-			username:"lys",
-			password:"123123",
-			email:"824826557@qq.com"
-		}
-	}).then(res=>{
-		console.log(res)
-	}).catch(error=>{
-
-	})
+	
 },
 methods:{
 
